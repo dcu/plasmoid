@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path('../../lib', __FILE__)
+
+require 'rubygems'
+require 'plasmoid/generator'
+
+exit Plasmoid::Generator.run!(*ARGV)
