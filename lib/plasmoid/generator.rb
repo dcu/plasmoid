@@ -5,9 +5,12 @@ require 'fileutils'
 require 'pathname'
 
 require 'plasmoid/generator/options'
+require 'plasmoid/generator/template_helper'
 
 module Plasmoid
   class Generator
+    include TemplateHelper
+
     attr_accessor :target_dir
     attr_accessor :options
     attr_accessor :project_name, :summary, :description, :user_name, :user_email, :homepage
@@ -73,13 +76,12 @@ module Plasmoid
         begin
           @repo = Git.init()
         rescue Git::GitExecuteError => e
-          raise GitInitFailed, "Encountered an error during gitification. Maybe the repo already exists, or has already been pushed to?"
+          raise "Encountered an error during gitification. Maybe the repo already exists, or has already been pushed to?"
         end
 
         begin
           @repo.add('.')
         rescue Git::GitExecuteError => e
-          #raise GitAddFailed, "There was some problem adding this directory to the git changeset"
           raise
         end
 
