@@ -36,6 +36,8 @@ Gem::Specification.new do |s|
     "lib/plasmoid/generator/templates/Rakefile",
     "lib/plasmoid/generator/templates/contents/code/application.js",
     "lib/plasmoid/generator/templates/contents/code/main.html",
+    "lib/plasmoid/generator/templates/contents/code/page1.html",
+    "lib/plasmoid/generator/templates/contents/code/page2.html",
     "lib/plasmoid/generator/templates/contents/code/style.css",
     "lib/plasmoid/generator/templates/metadata.desktop",
     "lib/plasmoid/haml.rb",
