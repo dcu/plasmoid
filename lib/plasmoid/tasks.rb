@@ -31,10 +31,11 @@ end
 desc "Installs the plasmoid"
 task :install => [:_init, :pkg] do
   Plasmoid::Package.new("#{@filename}.zip").install
+  sleep 2
 end
 
 desc "View plasmoid"
-task :view => [:_init, :install] do
+task :view => [:_init, :uninstall, :install] do
   Plasmoid::Package.new("#{@filename}.zip").run
 end
 
