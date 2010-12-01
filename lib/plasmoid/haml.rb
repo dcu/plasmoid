@@ -6,10 +6,17 @@ module Plasmoid
       @path = path
       @output_path = path.sub(/\.haml$/, "")
 
-      Haml::Engine.new(File.read(@path)).def_method(self, :render)
+      if valid?
+        ::Haml::Engine.new(File.read(@path)).def_method(self, :render)
+      end
+    end
+
+    def valid?
+      defined?(::Haml)
     end
 
     def write
+      return if !valid?
       File.open(@output_path, "w") do |f|
         f.write(self.render)
       end

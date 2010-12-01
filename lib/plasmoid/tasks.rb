@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'plasmoid/haml'
+
 require 'plasmoid/package'
 
 task :_init do

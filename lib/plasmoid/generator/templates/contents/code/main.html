@@ -3,8 +3,17 @@
   <head>
     <meta charset='utf-8' />
     <title><%= options[:project_name] %></title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <% if options[:use_jquery] %>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <% end %>
+    <% if options[:use_jquery_ui] %>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" />
+    <% end %>
+
     <script type="text/javascript" src="application.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <iframe height='400' src='http://plasma.kde.org/' width='100%'></iframe>

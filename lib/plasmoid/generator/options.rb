@@ -19,7 +19,15 @@ module Plasmoid
           o.separator ""
 
           o.on('--haml', 'enable haml') do |o|
-            self[:user_haml] = true
+            self[:use_haml] = true
+          end
+
+          o.on('--jquery', 'enable jquery') do |o|
+            self[:use_jquery] = true
+          end
+
+          o.on('--jquery-ui', 'enable jquery ui') do |o|
+            self[:use_jquery_ui] = true
           end
 
           o.separator ""

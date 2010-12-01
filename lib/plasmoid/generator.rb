@@ -79,6 +79,16 @@ module Plasmoid
         end
       end
 
+      if options[:use_haml]
+        Dir.chdir(target_dir) do
+          Dir.glob(File.join("contents/**/**/*.html")) do |path|
+            dest = path + ".haml"
+            puts dest
+            system("html2haml '#{path}' '#{dest}'")
+            File.unlink path
+          end
+        end
+      end
     end
 
     def create_version_control
