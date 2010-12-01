@@ -3,6 +3,7 @@ require 'erb'
 
 require 'fileutils'
 require 'pathname'
+require 'find'
 
 require 'plasmoid/generator/options'
 require 'plasmoid/generator/template_helper'
@@ -59,16 +60,25 @@ module Plasmoid
     def run
       create_files
       create_version_control
-      $stdout.puts "Your plasmoid is ready at #{target_dir}"
+      $stdout.puts "Your plasmoid is ready at #{target_dir}\ntype `rake -T` to see the available actions"
     end
 
     private
     def create_files
       puts "Creating files in #{target_dir}"
       FileUtils.mkpath(target_dir)
-      Dir.chdir(target_dir) do
-        FileUtils.touch("README")
+
+      Find.find(template_dir) do |path|
+        dest = path.sub(template_dir, "")
+
+        next if path =~ /^\.+$/ || dest.empty? || path =~ /~$/
+        if File.directory?(path)
+          mkdir(dest)
+        else
+          write_template(dest, dest)
+        end
       end
+
     end
 
     def create_version_control

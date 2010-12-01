@@ -9,8 +9,8 @@ module Plasmoid
     end
 
     def write
-      File.unlink(filename) if File.exist?(filename)
-      Zip::ZipFile.open(filename, Zip::ZipFile::CREATE) do |zf|
+      File.unlink(@filename) if File.exist?(@filename)
+      Zip::ZipFile.open(@filename, Zip::ZipFile::CREATE) do |zf|
         Find.find(".") do |path|
           path.sub!(/^\.\//, "")
 

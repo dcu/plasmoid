@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "plasmoid"
   gem.homepage = "http://github.com/dcu/plasmoid"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{ruby gem to work with KDE plasmoids}
+  gem.description = %Q{ruby gem to build and work with KDE plasmoids}
   gem.email = "krawek@gmail.com"
   gem.authors = ["David A. Cuadrado"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -26,6 +26,7 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
+=begin
 require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
@@ -48,3 +49,5 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+=end
+
