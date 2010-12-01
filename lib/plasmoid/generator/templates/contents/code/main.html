@@ -12,27 +12,10 @@
       <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" />
     <% end %>
 
-    <% if options[:use_jquery_mobile] %>
-      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
-      <script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
-    <% end %>
-
     <script type="text/javascript" src="application.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <% if !options[:use_jquery_mobile] %>
-      <iframe height='400' src='http://plasma.kde.org/' width='100%'></iframe>
-    <% else %>
-      <div data-role="page" data-theme="b">
-        <div data-role="content">
-          <ul data-role="listview" data-theme="c" data-dividertheme="b">
-            <li data-role="list-divider">Pages</li>
-            <li><a href="page1.html">Page 1</a></li>
-            <li><a href="page2.html">Page 2</a></li>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <iframe height='400' src='http://plasma.kde.org/' width='100%'></iframe>
   </body>
 </html>

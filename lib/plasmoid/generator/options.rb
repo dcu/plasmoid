@@ -26,11 +26,6 @@ module Plasmoid
             self[:use_jquery] = true
           end
 
-          o.on('--jquery-mobile', 'enable jquery mobile') do |o|
-            self[:use_jquery] = true
-            self[:use_jquery_mobile] = true
-          end
-
           o.on('--jquery-ui', 'enable jquery ui') do |o|
             self[:use_jquery_ui] = true
           end
