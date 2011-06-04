@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=<%= options[:project_name] %>
+Name[nl]=<%= options[:project_name] %>
+Type=Service
+ServiceTypes=Plasma/Applet
+Icon=chronometer
+X-Plasma-API=ruby-script
+X-Plasma-MainScript=code/main.rb
+X-KDE-PluginInfo-Author=<%= options[:user_name] %>
+X-KDE-PluginInfo-Email=<%= options[:project_email] %>
+X-KDE-PluginInfo-Name=<%= options[:project_name] %>
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://plasma.kde.org/
+X-KDE-PluginInfo-Category=Web Based
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-DefaultSize=380,500
