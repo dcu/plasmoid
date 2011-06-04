@@ -8,6 +8,8 @@ module Plasmoid
       def initialize(args)
         super()
 
+        self[:generator] = Plasmoid::WebkitGenerator
+
         @argv = args.clone
         @parser = OptionParser.new do |o|
           o.banner = "Usage: #{File.basename($0)} [options] name\ne.g. #{File.basename($0)} weba"
@@ -16,7 +18,15 @@ module Plasmoid
             self[:directory] = directory
           end
 
-          o.separator ""
+          o.on("--ruby", "generate ruby plasmoid") do |o|
+            self[:generator] = Plasmoid::RubyGenerator
+          end
+
+          o.separator "Webkit Options:"
+
+          o.on("--webkit", "generate webkit plasmoid") do |o|
+            self[:generator] = Plasmoid::WebkitGenerator
+          end
 
           o.on('--haml', 'enable haml') do |o|
             self[:use_haml] = true

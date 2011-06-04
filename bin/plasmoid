@@ -3,6 +3,6 @@
 $:.unshift File.expand_path('../../lib', __FILE__)
 
 require 'rubygems'
-require 'plasmoid/generator'
+require 'plasmoid'
 
 exit Plasmoid::Generator.run!(*ARGV)

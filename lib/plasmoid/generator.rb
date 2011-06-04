@@ -35,7 +35,7 @@ module Plasmoid
     end
 
     def self.run!(*args)
-      options = Plasmoid::Generator::Options.new(args)
+      options = self::Options.new(args)
 
       if options[:invalid_argument]
         $stderr.puts options[:invalid_argument]
@@ -52,7 +52,7 @@ module Plasmoid
         return 1
       end
 
-      generator = Plasmoid::Generator.new(options)
+      generator = options[:generator].new(options)
       generator.run
       return 0
     end
@@ -61,34 +61,6 @@ module Plasmoid
       create_files
       create_version_control
       $stdout.puts "Your plasmoid is ready at #{target_dir}\ntype `rake -T` to see the available actions"
-    end
-
-    private
-    def create_files
-      puts "Creating files in #{target_dir}"
-      FileUtils.mkpath(target_dir)
-
-      Find.find(template_dir) do |path|
-        dest = path.sub(template_dir, "")
-
-        next if path =~ /^\.+$/ || dest.empty? || path =~ /~$/
-        if File.directory?(path)
-          mkdir(dest)
-        else
-          write_template(dest, dest)
-        end
-      end
-
-      if options[:use_haml]
-        Dir.chdir(target_dir) do
-          Dir.glob(File.join("contents/**/**/*.html")) do |path|
-            dest = path + ".haml"
-            puts dest
-            system("html2haml '#{path}' '#{dest}'")
-            File.unlink path
-          end
-        end
-      end
     end
 
     def create_version_control
@@ -108,7 +80,6 @@ module Plasmoid
         begin
           @repo.commit "Initial commit to #{project_name}."
         rescue Git::GitExecuteError => e
-          raise
         end
       end
     end

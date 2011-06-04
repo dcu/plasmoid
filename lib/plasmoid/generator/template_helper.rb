@@ -7,7 +7,15 @@ module Plasmoid
       end
 
       def template_dir
-        @template_dir ||= File.join(File.dirname(__FILE__), 'templates')
+        @template_dir ||= File.join(File.dirname(__FILE__), 'templates', prefix_dir)
+      end
+
+      def prefix_dir
+        if self.class == Plasmoid::WebkitGenerator
+          "webkit"
+        elsif self.class == Plasmoid::RubyGenerator
+          "ruby"
+        end
       end
 
       def render_template(source)
