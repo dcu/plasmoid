@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{plasmoid}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David A. Cuadrado"]
-  s.date = %q{2010-12-01}
+  s.date = %q{2011-06-04}
   s.default_executable = %q{plasmoid}
   s.description = %q{ruby gem to build and work with KDE plasmoids}
   s.email = %q{krawek@gmail.com}
@@ -33,14 +33,19 @@ Gem::Specification.new do |s|
     "lib/plasmoid/generator.rb",
     "lib/plasmoid/generator/options.rb",
     "lib/plasmoid/generator/template_helper.rb",
-    "lib/plasmoid/generator/templates/Rakefile",
-    "lib/plasmoid/generator/templates/contents/code/application.js",
-    "lib/plasmoid/generator/templates/contents/code/main.html",
-    "lib/plasmoid/generator/templates/contents/code/style.css",
-    "lib/plasmoid/generator/templates/metadata.desktop",
+    "lib/plasmoid/generator/templates/ruby/Rakefile",
+    "lib/plasmoid/generator/templates/ruby/contents/code/main.rb",
+    "lib/plasmoid/generator/templates/ruby/metadata.desktop",
+    "lib/plasmoid/generator/templates/webkit/Rakefile",
+    "lib/plasmoid/generator/templates/webkit/contents/code/application.js",
+    "lib/plasmoid/generator/templates/webkit/contents/code/main.html",
+    "lib/plasmoid/generator/templates/webkit/contents/code/style.css",
+    "lib/plasmoid/generator/templates/webkit/metadata.desktop",
     "lib/plasmoid/haml.rb",
     "lib/plasmoid/package.rb",
+    "lib/plasmoid/ruby_generator.rb",
     "lib/plasmoid/tasks.rb",
+    "lib/plasmoid/webkit_generator.rb",
     "plasmoid.gemspec",
     "spec/plasmoid_spec.rb",
     "spec/spec_helper.rb"
@@ -50,24 +55,20 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{ruby gem to work with KDE plasmoids}
-  s.test_files = [
-    "spec/plasmoid_spec.rb",
-    "spec/spec_helper.rb"
-  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<jeweler>, [">= 0"])
+      s.add_runtime_dependency(%q<jeweler>, ["= 1.6.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
     else
-      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, ["= 1.6.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     end
   else
-    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, ["= 1.6.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
   end
 end

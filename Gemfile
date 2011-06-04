@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "jeweler"
+gem "jeweler", "1.6.0"
 
 # Add dependencies required to use your gem here.
 # Example:
