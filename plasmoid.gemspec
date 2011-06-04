@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{plasmoid}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David A. Cuadrado"]
@@ -33,6 +33,9 @@ Gem::Specification.new do |s|
     "lib/plasmoid/generator.rb",
     "lib/plasmoid/generator/options.rb",
     "lib/plasmoid/generator/template_helper.rb",
+    "lib/plasmoid/generator/templates/python/Rakefile",
+    "lib/plasmoid/generator/templates/python/contents/code/main.py",
+    "lib/plasmoid/generator/templates/python/metadata.desktop",
     "lib/plasmoid/generator/templates/ruby/Rakefile",
     "lib/plasmoid/generator/templates/ruby/contents/code/main.rb",
     "lib/plasmoid/generator/templates/ruby/metadata.desktop",
@@ -43,6 +46,7 @@ Gem::Specification.new do |s|
     "lib/plasmoid/generator/templates/webkit/metadata.desktop",
     "lib/plasmoid/haml.rb",
     "lib/plasmoid/package.rb",
+    "lib/plasmoid/python_generator.rb",
     "lib/plasmoid/ruby_generator.rb",
     "lib/plasmoid/tasks.rb",
     "lib/plasmoid/webkit_generator.rb",
