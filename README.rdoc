@@ -1,6 +1,21 @@
 = plasmoid
 
-Description goes here.
+kde plasmoid generator written in ruby
+it supports both webkit and ruby plasmoids
+
+== Install
+
+sudo gem install plasmoid
+
+== Usage
+
+$ plasmoid --ruby foo --summary "foo" 
+
+or
+
+$ plasmoid --webkit --haml --jquery foo
+
+once the project is generated it provides rake tasks to deal with the project like "rake view", "rake install", "rake pkg"
 
 == Contributing to plasmoid
  
