@@ -9,7 +9,7 @@ sudo gem install plasmoid
 
 == Usage
 
-$ plasmoid --ruby foo --summary "foo" 
+$ plasmoid --ruby foo --summary "foo" foo 
 
 or
 

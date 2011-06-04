@@ -22,6 +22,10 @@ module Plasmoid
             self[:generator] = Plasmoid::RubyGenerator
           end
 
+          o.on("--python", "generate python plasmoid") do |o|
+            self[:generator] = Plasmoid::PythonGenerator
+          end
+
           o.separator "Webkit Options:"
 
           o.on("--webkit", "generate webkit plasmoid") do |o|

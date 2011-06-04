@@ -15,6 +15,8 @@ module Plasmoid
           "webkit"
         elsif self.class == Plasmoid::RubyGenerator
           "ruby"
+        elsif self.class == Plasmoid::PythonGenerator
+          "python"
         end
       end
 
